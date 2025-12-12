@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: black;
+  overflow: hidden;
+  font-family: 'Georgia', serif;
+  color: white;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.saturn {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  filter: drop-shadow(0 0 40px rgba(0,255,255,0.35));
+}
+
+.planet {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #9ffcff,
+    #3aaed8,
+    #0a2a43
+  );
+}
+
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 620px;
+  height: 160px;
+  border: 2px solid rgba(180,255,255,0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotateX(65deg);
+  animation: spin 40s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotateX(65deg) rotateZ(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(65deg) rotateZ(360deg);
+  }
+}
+
+.verse {
+  position: relative;
+  text-align: center;
+  max-width: 700px;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.verse p {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  text-shadow: 0 0 15px rgba(0,255,255,0.4);
+}
+
+.verse span {
+  display: block;
+  margin-top: 18px;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
