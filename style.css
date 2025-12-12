@@ -9,7 +9,7 @@ html, body {
   height: 100%;
   background: black;
   overflow: hidden;
-  font-family: 'Georgia', serif;
+  font-family: Georgia, serif;
   color: white;
 }
 
@@ -33,7 +33,7 @@ html, body {
   animation: systemSpin 140s linear infinite;
 }
 
-/* Planet — Crown Chakra Hologram */
+/* Planet */
 .planet {
   position: relative;
   width: 100%;
@@ -41,20 +41,20 @@ html, body {
   border-radius: 50%;
   background: linear-gradient(
     135deg,
-    #f2e9ff 0%,
-    #b388ff 25%,
-    #7c4dff 50%,
-    #b388ff 75%,
-    #f2e9ff 100%
+    #f4ecff 0%,
+    #b48cff 30%,
+    #6a3dff 55%,
+    #b48cff 75%,
+    #f4ecff 100%
   );
   box-shadow:
-    inset -20px -20px 45px rgba(0,0,0,0.55),
-    inset 10px 10px 30px rgba(255,255,255,0.18);
+    inset -22px -22px 45px rgba(0,0,0,0.6),
+    inset 10px 10px 28px rgba(255,255,255,0.2);
   z-index: 2;
 }
 
 /* ===============================
-   RINGS (SPLIT FRONT / BACK)
+   RINGS (VISIBLE + STABLE)
    =============================== */
 
 .ring-back,
@@ -62,24 +62,30 @@ html, body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 640px;
-  height: 170px;
+  width: 680px;
+  height: 190px;
   border-radius: 50%;
   transform:
     translate(-50%, -50%)
-    rotateX(68deg);
+    rotateX(64deg);
   pointer-events: none;
 }
 
 /* Back ring */
 .ring-back {
-  border: 2px solid rgba(160,120,255,0.35);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(140,90,255,0.25),
+    rgba(0,0,0,0) 70%
+  );
+  border: 4px solid rgba(140,90,255,0.35);
   z-index: 1;
 }
 
 /* Front ring */
 .ring-front {
-  border: 2px solid rgba(220,190,255,0.85);
+  border: 4px solid rgba(210,170,255,0.9);
+  box-shadow: 0 0 18px rgba(180,120,255,0.6);
   z-index: 3;
   animation: ringSpin 100s linear infinite;
 }
@@ -97,13 +103,13 @@ html, body {
   from {
     transform:
       translate(-50%, -50%)
-      rotateX(68deg)
+      rotateX(64deg)
       rotateZ(0deg);
   }
   to {
     transform:
       translate(-50%, -50%)
-      rotateX(68deg)
+      rotateX(64deg)
       rotateZ(-360deg);
   }
 }
@@ -117,14 +123,13 @@ html, body {
   text-align: center;
   max-width: 740px;
   padding: 26px;
-  backdrop-filter: blur(2px);
   z-index: 4;
 }
 
 .verse p {
   font-size: 1.9rem;
   line-height: 1.65;
-  text-shadow: 0 0 12px rgba(180,120,255,0.45);
+  text-shadow: 0 0 14px rgba(180,120,255,0.55);
 }
 
 .verse span {
