@@ -23,48 +23,65 @@ html, body {
 }
 
 /* ===============================
-   SATURN SYSTEM (ONE BODY)
+   SATURN SYSTEM
    =============================== */
 
 .saturn {
   position: absolute;
   width: 420px;
   height: 420px;
-  animation: systemSpin 120s linear infinite;
-  transform-style: preserve-3d;
+  animation: systemSpin 140s linear infinite;
 }
 
-/* Planet — sharper hologram */
+/* Planet — Crown Chakra Hologram */
 .planet {
+  position: relative;
   width: 100%;
   height: 100%;
   border-radius: 50%;
   background: linear-gradient(
     135deg,
-    #c8ffff 0%,
-    #5ad6ff 25%,
-    #1b6fa3 50%,
-    #5ad6ff 75%,
-    #c8ffff 100%
+    #f2e9ff 0%,
+    #b388ff 25%,
+    #7c4dff 50%,
+    #b388ff 75%,
+    #f2e9ff 100%
   );
   box-shadow:
-    inset -18px -18px 40px rgba(0,0,0,0.55),
-    inset 8px 8px 25px rgba(255,255,255,0.15);
+    inset -20px -20px 45px rgba(0,0,0,0.55),
+    inset 10px 10px 30px rgba(255,255,255,0.18);
+  z-index: 2;
 }
 
-/* Ring — physically tied to sphere */
-.ring {
+/* ===============================
+   RINGS (SPLIT FRONT / BACK)
+   =============================== */
+
+.ring-back,
+.ring-front {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 620px;
-  height: 160px;
-  border: 2px solid rgba(180,255,255,0.75);
+  width: 640px;
+  height: 170px;
   border-radius: 50%;
   transform:
     translate(-50%, -50%)
     rotateX(68deg);
-  animation: ringSpin 90s linear infinite;
+  pointer-events: none;
+}
+
+/* Back ring */
+.ring-back {
+  border: 2px solid rgba(160,120,255,0.35);
+  z-index: 1;
+}
+
+/* Front ring */
+.ring-front {
+  border: 2px solid rgba(220,190,255,0.85);
+  z-index: 3;
+  animation: ringSpin 100s linear infinite;
 }
 
 /* ===============================
@@ -72,12 +89,8 @@ html, body {
    =============================== */
 
 @keyframes systemSpin {
-  from {
-    transform: rotateZ(0deg);
-  }
-  to {
-    transform: rotateZ(360deg);
-  }
+  from { transform: rotateZ(0deg); }
+  to   { transform: rotateZ(360deg); }
 }
 
 @keyframes ringSpin {
@@ -102,15 +115,16 @@ html, body {
 .verse {
   position: relative;
   text-align: center;
-  max-width: 720px;
-  padding: 24px;
+  max-width: 740px;
+  padding: 26px;
   backdrop-filter: blur(2px);
+  z-index: 4;
 }
 
 .verse p {
   font-size: 1.9rem;
   line-height: 1.65;
-  text-shadow: 0 0 10px rgba(120,255,255,0.35);
+  text-shadow: 0 0 12px rgba(180,120,255,0.45);
 }
 
 .verse span {
