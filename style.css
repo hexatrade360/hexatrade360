@@ -22,63 +22,100 @@ html, body {
   justify-content: center;
 }
 
+/* ===============================
+   SATURN SYSTEM (ONE BODY)
+   =============================== */
+
 .saturn {
   position: absolute;
   width: 420px;
   height: 420px;
-  filter: drop-shadow(0 0 40px rgba(0,255,255,0.35));
+  animation: systemSpin 120s linear infinite;
+  transform-style: preserve-3d;
 }
 
+/* Planet — sharper hologram */
 .planet {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: radial-gradient(
-    circle at 30% 30%,
-    #9ffcff,
-    #3aaed8,
-    #0a2a43
+  background: linear-gradient(
+    135deg,
+    #c8ffff 0%,
+    #5ad6ff 25%,
+    #1b6fa3 50%,
+    #5ad6ff 75%,
+    #c8ffff 100%
   );
+  box-shadow:
+    inset -18px -18px 40px rgba(0,0,0,0.55),
+    inset 8px 8px 25px rgba(255,255,255,0.15);
 }
 
+/* Ring — physically tied to sphere */
 .ring {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 620px;
   height: 160px;
-  border: 2px solid rgba(180,255,255,0.6);
+  border: 2px solid rgba(180,255,255,0.75);
   border-radius: 50%;
-  transform: translate(-50%, -50%) rotateX(65deg);
-  animation: spin 40s linear infinite;
+  transform:
+    translate(-50%, -50%)
+    rotateX(68deg);
+  animation: ringSpin 90s linear infinite;
 }
 
-@keyframes spin {
+/* ===============================
+   MOTION
+   =============================== */
+
+@keyframes systemSpin {
   from {
-    transform: translate(-50%, -50%) rotateX(65deg) rotateZ(0deg);
+    transform: rotateZ(0deg);
   }
   to {
-    transform: translate(-50%, -50%) rotateX(65deg) rotateZ(360deg);
+    transform: rotateZ(360deg);
   }
 }
+
+@keyframes ringSpin {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(68deg)
+      rotateZ(0deg);
+  }
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(68deg)
+      rotateZ(-360deg);
+  }
+}
+
+/* ===============================
+   VERSE
+   =============================== */
 
 .verse {
   position: relative;
   text-align: center;
-  max-width: 700px;
-  padding: 20px;
-  backdrop-filter: blur(4px);
+  max-width: 720px;
+  padding: 24px;
+  backdrop-filter: blur(2px);
 }
 
 .verse p {
-  font-size: 1.8rem;
-  line-height: 1.6;
-  text-shadow: 0 0 15px rgba(0,255,255,0.4);
+  font-size: 1.9rem;
+  line-height: 1.65;
+  text-shadow: 0 0 10px rgba(120,255,255,0.35);
 }
 
 .verse span {
   display: block;
-  margin-top: 18px;
+  margin-top: 20px;
   font-size: 1.1rem;
   opacity: 0.85;
 }
